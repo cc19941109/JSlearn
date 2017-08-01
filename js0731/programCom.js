@@ -1,9 +1,9 @@
 document.writeln('hello,world');
 var that = this;
 /*
-è¿™é‡Œæ˜¯æ³¨é‡Š
+ÕâÀïÊÇ×¢ÊÍ
  */
-//è¿™é‡Œä¹Ÿæ˜¯æ³¨é‡Š
+//ÕâÀïÒ²ÊÇ×¢ÊÍ
 var x=.1;
 document.writeln(x);
 
@@ -59,7 +59,7 @@ function fun1 (x){
 var stooge  = {
 	"first_name":"Jerome",
 	"last_name":"Howard",
-	age :"14",
+	age :14,
 	address:{
 		country:"China",
 		city:"HangZhou",
@@ -68,5 +68,54 @@ var stooge  = {
 
 stooge["first_name"];
 document.writeln(stooge["first_name"]);
+stooge["first_name"] =  "chengchen";
+document.writeln(stooge["first_name"]);
 
+var newdata = stooge.address.city1 || "none city";
+document.writeln(newdata);
+
+stooge["mid_name"] = "Ethan";
+stooge.mid_name = "Giraffe Tree";
+document.writeln(stooge["mid_name"]);
+
+var x = stooge;
+
+document.writeln("");
+
+document.writeln(x.mid_name);
+x.mid_name = "small treeeeeee";
+document.writeln(x.mid_name);
+document.writeln(stooge.mid_name);
+
+//Ô­ÐÍ£¬Ã¿¸ö¶ÔÏó¶¼Á¬½Óµ½Ò»¸öÔ­ÐÍ¶ÔÏó£¬¼Ì³ÐÊôÐÔ
+//TODO
+if(typeof Object.beget !== 'function'){
+	Object.create  = function(o){
+		var F  = function(){};
+		F.prototype = o;
+		return new F();
+	};
+}
+
+var ano = Object.create(stooge);
+// ÕÒÊôÐÔÖµµÃ¹ý³Ì£¬³ÉÎªÎ¯ÍÐ
+stooge.teacher = "chengchen";
+document.writeln(ano.teacher);
+
+//·´Éä
+document.writeln(typeof ano.age+" "+typeof(ano.teacher));
+document.writeln(typeof(ano.toString));
+document.writeln(typeof(null));
+
+ano.school  = "university";
+document.writeln(ano.hasOwnProperty('school'));
+
+var name;
+for(name in ano){
+	if(typeof ano[name]!=='function'){
+		document.writeln(name+" : "+ano[name]);
+	}
+}
+
+document.writeln("falksjdflajfjwiof");
 
